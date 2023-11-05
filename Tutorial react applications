@@ -400,3 +400,47 @@ const Calculator = () => {
 
 
 export default Calculator;
+
+
+Gmail replication
+
+import React, { useState } from 'react';
+
+const GmailApp = () => {
+  const [emails, setEmails] = useState([
+    {
+      from: 'example1@example.com',
+      subject: 'Example Subject 1',
+      message: 'This is the first example message.'
+    },
+    {
+      from: 'example2@example.com',
+      subject: 'Example Subject 2',
+      message: 'This is the second example message.'
+    }
+  ]);
+
+  return (
+    <div className="gmail-app">
+      <header className="gmail-header">
+        <h2>Gmail Header</h2>
+      </header>
+      <div className="gmail-inbox">
+        {/* Display the list of emails */}
+        {emails.map((email, index) => (
+          <div key={index} className="email-item">
+            <p>From: {email.from}</p>
+            <p>Subject: {email.subject}</p>
+            <p>{email.message}</p>
+          </div>
+        ))}
+      </div>
+      <footer className="gmail-footer">
+        <h3>Gmail Footer</h3>
+      </footer>
+    </div>
+  );
+};
+
+export default GmailApp;
+
