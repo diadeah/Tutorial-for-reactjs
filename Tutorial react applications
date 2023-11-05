@@ -1,0 +1,402 @@
+Twitter react page
+
+import React from 'react';
+import './App.css'; // Import the CSS file for styling
+
+
+const tweets = [
+  {
+    id: 1,
+    content: 'Just had a great time at the beach! ☀️🏖 #relaxation',
+    author: 'Sara Johnson',
+    username: '@saraj',
+  },
+  {
+    id: 2,
+    content: 'Excited to announce the launch of our new product! 🎉 #tech',
+    author: 'TechCo',
+    username: '@techco',
+  },
+  {
+    id: 3,
+    content: 'Enjoying my vacation in the mountains. The view is breathtaking! ⛰️ #nature',
+    author: 'Alex Thompson',
+    username: '@alexT',
+  },
+  {
+    id: 4,
+    content: 'Thrilled to be part of the conference today. Learning so much from the speakers! #conference',
+    author: 'Jane Smith',
+    username: '@janes',
+  },
+  {
+    id: 5,
+    content: 'Just finished reading an amazing book. Highly recommend it! 📚 #reading',
+    author: 'Bookworm',
+    username: '@bookworm',
+  },
+];
+
+
+
+
+
+
+const Tweet = ({ content, author, username }) => (
+  <div className="tweet">
+    <p>{content}</p>
+    <p>
+      <strong>{author}</strong> {username}
+    </p>
+  </div>
+);
+
+
+const LeftSection = () => (
+  <div className="left-section">
+    <div className="left-content">
+      {/* Add home page login components here */}
+      <h2>Login</h2>
+      <button className="tweet-button">Tweet</button>
+    </div>
+  </div>
+);
+
+
+const CenterSection = () => (
+  <div className="center-section">
+    {tweets.map((tweet) => (
+      <Tweet
+        key={tweet.id}
+        content={tweet.content}
+        author={tweet.author}
+        username={tweet.username}
+      />
+    ))}
+  </div>
+);
+
+
+const RightSection = () => (
+  <div className="right-section">
+    <div className="right-content">
+      <div className="headline-box">
+        <h2>Taylor Swift goes no.1 on Spotify</h2>
+      </div>
+      <div className="headline-box">
+        <h2>Tomorrow holiday? Students shaking</h2>
+      </div>
+      {/* ... Add more headlines here */}
+    </div>
+  </div>
+);
+
+
+
+
+const TwitterHomePage = () => (
+  <div className="twitter-homepage">
+
+
+    <LeftSection />
+    <CenterSection />
+    <RightSection />
+  </div>
+);
+
+
+export default TwitterHomePage;
+
+//CSS
+.twitter-homepage {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+
+.left-section {
+  flex: 1;
+}
+
+
+.center-section {
+  flex: 2;
+}
+
+
+.right-section {
+  flex: 1;
+}
+
+
+.tweet {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+
+
+
+
+.headline-box {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+
+
+
+.twitter-homepage {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+
+.left-section {
+  flex: 1;
+  border-right: 1px solid #ddd; /* Add a vertical line to the right */
+  padding-right: 20px; /* Add some padding to the right for the line */
+}
+
+
+.center-section {
+  flex: 2;
+  border-right: 1px solid #ddd; /* Add a vertical line to the right */
+  border-left: 1px solid #ddd; /* Add a vertical line to the left */
+  padding: 0 20px; /* Add some padding on both sides for the lines */
+}
+
+
+.right-section {
+  flex: 1;
+  border-left: 1px solid #ddd; /* Add a vertical line to the left */
+  padding-left: 20px; /* Add some padding to the left for the line */
+}
+
+
+.tweet-button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+To-do list
+
+import React, { useState } from 'react';
+
+
+const TodoApp = () => {
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+
+  const handleAddTodo = () => {
+    if (inputValue !== '') {
+      setTodos([...todos, inputValue]);
+      setInputValue('');
+    }
+  };
+
+
+  const handleDeleteTodo = (index) => {
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+  };
+
+
+  return (
+    <div>
+      <h2>To-Do List</h2>
+      <div>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button onClick={handleAddTodo}>Add</button>
+      </div>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            {todo}
+            <button onClick={() => handleDeleteTodo(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+
+export default TodoApp;
+
+
+
+Authenticate username + password
+
+
+import React, { useState } from 'react';
+
+
+const Authentication = () => {
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+  const handleSignUp = () => {
+    // Implement sign-up logic here
+    setUser({ email, password });
+    setEmail('');
+    setPassword('');
+  };
+
+
+  const handleLogin = () => {
+    // Implement login logic here
+    if (user && user.email === email && user.password === password) {
+      setIsLoggedIn(true);
+    }
+  };
+
+
+  const handleLogout = () => {
+    // Implement logout logic here
+    setIsLoggedIn(false);
+  };
+
+
+  return (
+    <div>
+      {!isLoggedIn ? (
+        <div>
+          <h2>Sign Up</h2>
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button onClick={handleSignUp}>Sign Up</button>
+          <br />
+          <h2>Login</h2>
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button onClick={handleLogin}>Login</button>
+        </div>
+      ) : (
+        <div>
+          <h2>Welcome, {user.email}!</h2>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+export default Authentication;
+
+
+
+
+
+
+Simple and Compound calculator
+
+import React, { useState } from 'react';
+
+
+const Calculator = () => {
+  const [principal, setPrincipal] = useState(0);
+  const [rate, setRate] = useState(0);
+  const [time, setTime] = useState(0);
+  const [result, setResult] = useState(0);
+
+
+  const handleSimpleInterest = () => {
+    const simpleInterest = (principal * rate * time) / 100;
+    setResult(simpleInterest);
+  };
+
+
+  const handleCompoundInterest = () => {
+    const amount = principal * Math.pow(1 + rate / 100, time);
+    const compoundInterest = amount - principal;
+    setResult(compoundInterest);
+  };
+
+
+  return (
+    <div>
+      <h2>Simple and Compound Interest Calculator</h2>
+      <div>
+        <label>Principal:</label>
+        <input
+          type="number"
+          value={principal}
+          onChange={(e) => setPrincipal(+e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Rate of Interest:</label>
+        <input
+          type="number"
+          value={rate}
+          onChange={(e) => setRate(+e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Time (in years):</label>
+        <input
+          type="number"
+          value={time}
+          onChange={(e) => setTime(+e.target.value)}
+        />
+      </div>
+      <button onClick={handleSimpleInterest}>Calculate Simple Interest</button>
+      <button onClick={handleCompoundInterest}>Calculate Compound Interest</button>
+      <div>
+        <label>Result:</label>
+        <input type="number" value={result} disabled />
+      </div>
+    </div>
+  );
+};
+
+
+export default Calculator;
