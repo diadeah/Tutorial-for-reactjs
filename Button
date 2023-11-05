@@ -1,0 +1,85 @@
+#Implementing buttons in text boxes for react js
+
+// Button.js
+import React from 'react';
+import './Button.css'; // You can define the styles for the button in this file
+
+const Button = ({ onClick, text }) => {
+  return (
+    <div className="button-box">
+      <button onClick={onClick} className="custom-button">
+        {text}
+      </button>
+    </div>
+  );
+};
+
+
+
+css
+Copy code
+/* Button.css */
+.button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust this as per your requirements */
+}
+
+.custom-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.custom-button:hover {
+  background-color: #45a049;
+}
+
+
+// App.js
+import React from 'react';
+import Button from './Button';
+
+function App() {
+  const handleClick = () => {
+    // Add your click logic here
+    console.log('Button clicked');
+  };
+
+  return (
+    <div className="App">
+      <h1>Welcome to my React App</h1>
+      <Button onClick={handleClick} text="Click Me" />
+    </div>
+  );
+}
+
+export default App;
+
+
+//Using button for usestate
+
+import React, { useState } from 'react';
+import './Button.css';
+
+const Button = () => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+  };
+
+  return (
+    <div className="button-box">
+      <button onClick={handleClick} className={clicked ? "custom-button-clicked" : "custom-button"}>
+        {clicked ? 'Clicked' : 'Click Me'}
+      </button>
+    </div>
+  );
+};
+
+export default Button;
