@@ -2,3 +2,40 @@
 https://github.com/ManiruzzamanAkash/React-Crash-Course/tree/main
 https://react-bootstrap.netlify.app/docs/components/navbar/
 https://www.w3schools.com/react/react_router.asp
+
+
+
+---------------------------------
+
+Identify Components - 10 marks
+Component Hierarchy Diagram - 10 mark
+ES6, JSX, Functional Component - 10 ma
+Use State - 20 marks
+Props - 20 marks
+React Routing - 10 marks
+CSS and/or Bootstrap - 10 marks
+Coding Progress and Process - 10 marks
+
+---------------------
+
+Identify Components
+Construct Component Hierarchy Diagram
+Implement the Static Parts of the WebApp
+a) Implement a Component and a Necessary Prop
+b) Include it into the Main Application
+c) Test the Output
+d) Repeat (a) to (c)
+Identify States and Implement States
+Add Necessary CSS/ Bootstrap
+
+-----------------------
+
+Identify Components
+Counter Application
+- Header
+- Counter Display
+Co
+- Counter Container
+- Increment Button
+- Decrement Button
+- Reset Button
