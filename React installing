@@ -1,0 +1,14 @@
+npx create-react-app my-react-app
+cd my-react-app
+npm start
+[24-08-2023 15:26] +91 94875 26315: If you have done so, uninstall it using
+
+npm r react-router-dom
+[24-08-2023 15:26] +91 94875 26315: install it again using
+
+npm i react-router-dom
+[24-08-2023 15:27] +91 94875 26315: That should solve 'useRef' error
+[24-08-2023 15:31] +91 94875 26315: "npm i -D react-router-dom" <= avoid
+
+npm install react-bootstrap bootstrap
+
